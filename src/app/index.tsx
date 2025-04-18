@@ -1,9 +1,10 @@
-const App = () => {
-  return (
-    <div className="app">
-        Hello
-    </div>
-  );
-}
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import App from './App'
+import "./App.css";
 
-export default App;
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)

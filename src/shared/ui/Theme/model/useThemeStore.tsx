@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import { TehemeStore, Theme } from "./types";
 
+//TODO: не работает нормально тема тоглер. переделать
+
 const getInitialTheme = (): Theme => {
     if (typeof localStorage !== 'undefined') {
       const stored = localStorage.getItem('theme');

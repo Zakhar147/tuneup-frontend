@@ -1,13 +1,15 @@
 import { ReactNode } from 'react';
 import clsx from 'clsx';
 
+//TODO: Сделать так чтобы была возможность передавать gap в пропсы
+
 interface FlexBoxProps {
   children: ReactNode;
   className?: string;
   justify?: 'start' | 'center' | 'between' | 'end';
   align?: 'start' | 'center' | 'end';
   direction?: 'row' | 'col';
-  gap?: string;
+  gap?: number | string;
 }
 
 export const FlexBox: React.FC<FlexBoxProps> = ({
@@ -33,8 +35,10 @@ export const FlexBox: React.FC<FlexBoxProps> = ({
 
   const flexDirection = direction === 'col' ? 'flex-col' : 'flex-row';
 
+  const gapClass = gap !== undefined ? `gap-${gap}` : '';
+
   return (
-    <div className={clsx('flex', flexDirection, justifyClass, alignClass, gap, className)}>
+    <div className={clsx('flex', flexDirection, justifyClass, alignClass, gapClass, className)}>
       {children}
     </div>
   );

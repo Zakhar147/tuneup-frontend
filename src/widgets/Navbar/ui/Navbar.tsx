@@ -1,16 +1,15 @@
-import { ThemeToggler } from "@shared/ui/Theme/ui/ThemeToggler";
-import { FlexBox } from "@shared/ui/FlexBox/FlexBox";
+import { ThemeToggler } from "@shared/ui/Theme";
+import { FlexBox } from "@shared/ui/FlexBox";
 import { Typography } from "@shared/ui/Typography";
 
 export const Navbar: React.FC = () => {
     return (
-        <header className="w-full py-53 px-60">
+        <header className="w-full py-[30px] px-[60px]">
             <FlexBox justify="between" align="center">
-                <Typography.Title as="h1"> TuneUp </Typography.Title>
-                <FlexBox justify="center" className="gap-30">
-                    <Typography.Subtitle pointer> About </Typography.Subtitle>
-                    <Typography.Subtitle pointer> Login </Typography.Subtitle>
-
+                <Typography title className="text-[32px]" as="h1"> TuneUp </Typography>
+                <FlexBox justify="center" className="gap-[30px]">
+                    <Typography className="text-[16px] font-medium" pointer> About </Typography>
+                    <Typography className="text-[16px] font=medium" pointer> Login </Typography>
                     <ThemeToggler/>
                 </FlexBox>
             </FlexBox>

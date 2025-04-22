@@ -5,24 +5,14 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+
   theme: {
     extend: {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
       },
-      fontSize: {
-        title: "31px",
-        subtitle: "17px"
-      },
-      spacing: {
-        53: "53px",
-        60: "60px",
-        30: "30px",
-        340: "340px",
-        100: "100px",
-        556: "556px",
-        376: "376px"
-      },
+      //TODO: Убрать числа в обьекте spacing заменить tlwind код на -[Npx], где N - числовое занчение 
+
       borderRadius: {
         30: "30px",
       },
@@ -36,7 +26,8 @@ export default {
       },
       opacity: {
         8: '0.08', // 8%
-        46: '0.46'
+        56: '0.56',
+        80: '0.8'
       },
       blur: {
         2: '2px',
@@ -45,6 +36,7 @@ export default {
         accent: "#E95420",
         light: {
           bgColor: "#F9F6F3",
+          container: "#FFFFFF",
           textMain: "#000000",
           textSecond: "#555555",
           formBg: "#FFFFFF",
@@ -52,6 +44,7 @@ export default {
         },
         dark: {
           bgColor: "#0D0D0D",
+          container: "#111111",
           textMain: "#FFFFFF",
           textSecond: "#AAAAAA",
           formBg: "#111111",

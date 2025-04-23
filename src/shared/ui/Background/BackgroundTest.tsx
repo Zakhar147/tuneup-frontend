@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useMemo, useState } from 'react';
+import { ReactNode, useEffect, useMemo, useState } from "react";
 
 interface BackgroundProps {
   children: ReactNode;
@@ -8,8 +8,12 @@ const getRandomInt = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
 const isOverlapping = (
-  x1: number, y1: number, size1: number,
-  x2: number, y2: number, size2: number
+  x1: number,
+  y1: number,
+  size1: number,
+  x2: number,
+  y2: number,
+  size2: number
 ) => {
   return !(
     x1 + size1 < x2 ||
@@ -19,7 +23,11 @@ const isOverlapping = (
   );
 };
 
-const generateNonOverlappingSquares = (count: number, maxWidth: number, maxHeight: number) => {
+const generateNonOverlappingSquares = (
+  count: number,
+  maxWidth: number,
+  maxHeight: number
+) => {
   const squares: {
     left: number;
     top: number;
@@ -28,7 +36,7 @@ const generateNonOverlappingSquares = (count: number, maxWidth: number, maxHeigh
   }[] = [];
 
   const sizeRange = {
-    min: 500 - count * 40, 
+    min: 500 - count * 40,
     max: 600 - count * 30,
   };
 
@@ -41,41 +49,39 @@ const generateNonOverlappingSquares = (count: number, maxWidth: number, maxHeigh
     const top = getRandomInt(-100, maxHeight - size);
     const rotate = getRandomInt(-75, 75);
 
-    const overlaps = squares.some(s =>
+    const overlaps = squares.some((s) =>
       isOverlapping(left, top, size, s.left, s.top, s.size)
     );
 
     if (!overlaps) {
-      squares.push({ left, top, size, rotate});
+      squares.push({ left, top, size, rotate });
     }
   }
 
   return squares;
 };
 
-
-
 const Background: React.FC<BackgroundProps> = ({ children }) => {
   const [maxHeight, setMaxHeight] = useState<number>(0);
   const [maxWidth, setMaxWidth] = useState<number>(0);
 
-    useEffect(() => {
-        const html = document.documentElement;
+  useEffect(() => {
+    const html = document.documentElement;
 
-        const width = window.innerWidth;
-        const height = Math.max(
-            document.body.scrollHeight,
-            document.body.offsetHeight,
-            html.clientHeight,
-            html.scrollHeight,
-            html.offsetHeight
-        );
+    const width = window.innerWidth;
+    const height = Math.max(
+      document.body.scrollHeight,
+      document.body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
 
-        setMaxWidth(width);
-        setMaxHeight(height);
-    }, []);
+    setMaxWidth(width);
+    setMaxHeight(height);
+  }, []);
 
-  console.log(maxHeight)
+  console.log(maxHeight);
 
   const squares = useMemo(() => {
     const count = getRandomInt(4, 10);

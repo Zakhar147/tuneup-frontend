@@ -1,7 +1,6 @@
 import React, { ElementType, ReactNode } from 'react';
 import clsx from 'clsx';
 
-
 interface TextProps {
   children: ReactNode;
   as?: ElementType;

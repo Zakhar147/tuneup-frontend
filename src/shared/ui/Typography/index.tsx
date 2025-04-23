@@ -7,6 +7,7 @@ interface TextProps {
   className?: string;
   pointer?: boolean;
   title?: boolean;
+  id?: string
 }
 
 export const Typography: React.FC<TextProps> = ({
@@ -15,6 +16,7 @@ export const Typography: React.FC<TextProps> = ({
   className,
   pointer = false,
   title = false,
+  id
 }) => {
   const colorClass  = title
     ? 'text-light-textMain dark:text-dark-textMain'
@@ -27,6 +29,7 @@ export const Typography: React.FC<TextProps> = ({
         pointer ? 'cursor-pointer' : 'cursor-default',
         className
       )}
+      id = {id}
     >
       {children}
     </Tag>

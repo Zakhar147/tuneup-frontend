@@ -1,10 +1,13 @@
+import React from "react";
+
+import { ActionCard } from "@widgets/ActionCard/ui/ActionCard";
+
 import { BassGuitarIcon } from "@shared/assets/Components/BassGuitarIcon";
 import { NoteIcon } from "@shared/assets/Components/NoteIcon";
 import { CreateAccountButton } from "@shared/ui/Button";
 import { FlexBox } from "@shared/ui/FlexBox";
 import { Typography } from "@shared/ui/Typography";
-import { ActionCard } from "@widgets/ActionCard/ui/ActionCard";
-import React from "react";
+import { BenefitList } from "@shared/ui/Benefits";
 
 const Home: React.FC = () => {
   return (
@@ -12,7 +15,7 @@ const Home: React.FC = () => {
       direction="col"
       justify="center"
       align="center"
-      className="w-full h-full gap-[81px] py-[141px] "
+      className="w-full h-full gap-[115px] py-[141px] "
     >
       <FlexBox
         direction="col"
@@ -43,6 +46,10 @@ const Home: React.FC = () => {
           href="#"
           hrefText="View songs"
         />
+      </FlexBox>
+
+      <FlexBox direction="col" justify="between" align="center">
+        <BenefitList/>
       </FlexBox>
     </FlexBox>
   );

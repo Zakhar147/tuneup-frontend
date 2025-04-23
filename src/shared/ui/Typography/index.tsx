@@ -1,8 +1,37 @@
-import { Title } from './Title';
-import { Subtitle } from './Subtitle';
-//TODO: Может быть переделать в один компонент 
+import React, { ElementType, ReactNode } from 'react';
+import clsx from 'clsx';
 
-export const Typography = {
-  Title,
-  Subtitle
+interface TextProps {
+  children: ReactNode;
+  as?: ElementType;
+  className?: string;
+  pointer?: boolean;
+  title?: boolean;
+  id?: string
+}
+
+export const Typography: React.FC<TextProps> = ({
+  children,
+  as: Tag = 'p',
+  className,
+  pointer = false,
+  title = false,
+  id
+}) => {
+  const colorClass  = title
+    ? 'text-light-textMain dark:text-dark-textMain'
+    : 'text-light-textSecond dark:text-dark-textSecond';
+
+  return (
+    <Tag
+      className={clsx(
+        colorClass,
+        pointer ? 'cursor-pointer' : 'cursor-default',
+        className
+      )}
+      id = {id}
+    >
+      {children}
+    </Tag>
+  );
 };

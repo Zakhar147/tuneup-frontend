@@ -6,7 +6,7 @@ import clsx from 'clsx';
 interface FlexBoxProps {
   children: ReactNode;
   className?: string;
-  justify?: 'start' | 'center' | 'between' | 'end';
+  justify?: 'start' | 'center' | 'between' | 'end' | 'around';
   align?: 'start' | 'center' | 'end';
   direction?: 'row' | 'col';
   gap?: number | string;
@@ -25,6 +25,7 @@ export const FlexBox: React.FC<FlexBoxProps> = ({
     center: 'justify-center',
     between: 'justify-between',
     end: 'justify-end',
+    around:  'justify-around'
   }[justify];
 
   const alignClass = {

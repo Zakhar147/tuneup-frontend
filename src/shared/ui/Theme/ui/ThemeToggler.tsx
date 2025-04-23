@@ -1,5 +1,5 @@
 import { useThemeStore } from "../model/useThemeStore";
-
+//TODO: немного переделать дизайн тоглера 
 export const ThemeToggler = () => {
     const { theme, toggleTheme } = useThemeStore();
 

@@ -9,8 +9,8 @@ interface BenefitItemProps {
 
 export const BenefitItem: React.FC<BenefitItemProps> = ({ text }) => (
   <li className="flex items-center gap-[20px]">
-    <CheckMark className="w-[40px] flex-shrink-0" />
-    <Typography as="span" className="text-[20px]">
+    <CheckMark className="w-[40px] max-md:w-[30px] flex-shrink-0" />
+    <Typography as="span" className="text-[20px] max-md:text-[18px]">
       {text}
     </Typography>
   </li>

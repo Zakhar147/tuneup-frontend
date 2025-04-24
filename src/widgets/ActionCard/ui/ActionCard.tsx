@@ -19,14 +19,14 @@ export const ActionCard: React.FC<ActionCardProps> = ({
 }) => {
   return (
     <FlexBox justify="between" align="center" className="w-full gap-x-[30px]" >
-      <FlexBox justify="center" align="center" className="max-w-[130px] bg-accent rounded-[10px] px-[15px] h-[100%]">
+      <FlexBox justify="center" align="center" className="max-w-[130px] max-md:max-w-[115px] bg-accent rounded-[10px] px-[15px] h-[100%]">
         <Icon />
       </FlexBox>
       <FlexBox direction="col" justify="between" align="start" className="flex-1 min-w-0 self-stretch">
-        <Typography title className="text-[40px] font-bold">
+        <Typography title className="text-[40px] font-bold max-md:text-[35px]">
           {title}
         </Typography>
-        <Link href={href} hrefText={hrefText + " ->"} className="text-[20px]" />
+        <Link href={href} hrefText={hrefText + " ->"} className="text-[20px] max-md:text-[18px]" />
       </FlexBox>
     </FlexBox>
   );

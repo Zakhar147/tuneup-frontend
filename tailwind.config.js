@@ -11,8 +11,6 @@ export default {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
       },
-      //TODO: Убрать числа в обьекте spacing заменить tlwind код на -[Npx], где N - числовое занчение 
-
       borderRadius: {
         30: "30px",
       },
@@ -50,6 +48,10 @@ export default {
           formBg: "#111111",
           chrodsBg: "#2D0202"
         }
+      },
+      screens: {
+        'max-md': { 'raw': '(max-width: 768px)' },
+        'max-sm': { "raw": '(max-width: 576px)' },
       }
     },
   },

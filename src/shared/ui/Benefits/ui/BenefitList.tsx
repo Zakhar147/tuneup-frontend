@@ -11,7 +11,7 @@ export const BenefitList: React.FC = () => (
     aria-labelledby="benefits-heading"
     className="flex flex-col gap-8 max-w-prose mx-auto py-8"
   >
-    <Typography title  id="benefits-heading" className="font-bold text-[40px] ">
+    <Typography title  id="benefits-heading" className="font-bold text-[40px] max-md:text-[35px]">
       Why TuneUp ?
     </Typography>
 

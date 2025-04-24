@@ -23,10 +23,10 @@ const Home: React.FC = () => {
         align="center"
         className="gap-[15px]"
       >
-        <Typography title className="text-[48px] font-bold">
+        <Typography title className="text-[48px]/[53px] text-center  font-bold  max-md:max-w-[520px] max-md:text-[40px]">
           Play and Grow up with TuneUp!
         </Typography>
-        <Typography className="w-full text-center md:max-w-[500px] mx-auto break-words text-[20px] font-medium">
+        <Typography className="w-full text-center max-w-[500px] mx-auto break-words text-[20px] font-medium max-md:text-[18px] max-md:max-w-[400px]">
           TuneUp helps you learn to play bass with tabs and chords for all your
           favorite songs.
         </Typography>
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
       </FlexBox>
 
       <FlexBox direction="col" justify="between" align="center">
-        <BenefitList/>
+        <BenefitList />
       </FlexBox>
     </FlexBox>
   );

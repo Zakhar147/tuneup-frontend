@@ -6,7 +6,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="w-full">
         <hr className=' w-full h-px border-0 bg-[#80808030]'/>
-        <FlexBox className=' p-[20px]' justify='between' align='center'>
+        <FlexBox className='max-md:flex-col p-[20px]' justify='between' align='center' >
             <Typography className='text-[14px]' >Copyright © 2025 TuneUp</Typography>
             <FlexBox justify='between' align='center' className='gap-[34px]'>
                 <Typography className='text-[13px]' pointer  >About</Typography>

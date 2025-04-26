@@ -7,7 +7,8 @@ interface TextProps {
   className?: string;
   pointer?: boolean;
   title?: boolean;
-  id?: string
+  id?: string;
+  colorClassName?: string; // ➔ добавляем новое свойство для цвета
 }
 
 export const Typography: React.FC<TextProps> = ({
@@ -16,20 +17,21 @@ export const Typography: React.FC<TextProps> = ({
   className,
   pointer = false,
   title = false,
-  id
+  id,
+  colorClassName 
 }) => {
-  const colorClass  = title
+  const defaultColorClass = title
     ? 'text-light-textMain dark:text-dark-textMain'
     : 'text-light-textSecond dark:text-dark-textSecond';
 
   return (
     <Tag
       className={clsx(
-        colorClass,
+        colorClassName || defaultColorClass, 
         pointer ? 'cursor-pointer' : 'cursor-default',
         className
       )}
-      id = {id}
+      id={id}
     >
       {children}
     </Tag>

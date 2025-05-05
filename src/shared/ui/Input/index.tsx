@@ -1,1 +1,2 @@
-export {BasicInput} from './ui/BasicInput'
+export {BasicInput} from './ui/BasicInput';
+export {SearchInput} from "./ui/SearchInput";

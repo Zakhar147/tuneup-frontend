@@ -38,7 +38,8 @@ export default {
           textMain: "#000000",
           textSecond: "#555555",
           formBg: "#FFFFFF",
-          chrodsBg: "#F5C4AE"
+          chrodsBg: "#F5C4AE",
+          inputBorder: "#CCCCCC"
         },
         dark: {
           bgColor: "#0D0D0D",
@@ -46,7 +47,8 @@ export default {
           textMain: "#FFFFFF",
           textSecond: "#AAAAAA",
           formBg: "#111111",
-          chrodsBg: "#2D0202"
+          chrodsBg: "#2D0202",
+          inputBorder: "#3D3D3D"
         }
       },
       screens: {

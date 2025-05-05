@@ -5,9 +5,9 @@ import { BasicInput } from "@shared/ui/Input";
 import { Link } from "@shared/ui/Link";
 import { Typography } from "@shared/ui/Typography";
 
-const Login = () => {
+const Registration = () => {
   return (
-    <FormWrapper titleSizeClass = "text-[36px]"title="Log in to your Account">
+    <FormWrapper title="Create an Account">
       <FlexBox
         direction="col"
         justify="center"
@@ -15,7 +15,9 @@ const Login = () => {
         className="gap-[15px] w-[100%]"
       >
         <BasicInput placeholder="Username" />
+        <BasicInput type="email" placeholder="Email" />
         <BasicInput type="password" placeholder="Password" />
+        <BasicInput type="password" placeholder="Confirm password" />
       </FlexBox>
       <FlexBox
         direction="col"
@@ -26,18 +28,13 @@ const Login = () => {
         <SubmitButton text="Sign up" />
         <FlexBox justify="center" align="center" className="gap-[10px]">
           <Typography colorClassName="text-[#555555]" className="text-[20px]">
-            Don't have an account?
+            Already have an account ?
           </Typography>
-          <Link
-            href="/registration"
-            hrefText="Sign up"
-            colorClassName="text-accent"
-            className="font-medium"
-          />
+          <Link href="/login" hrefText="Sign in" colorClassName="text-accent"  className="font-medium"/>
         </FlexBox>
       </FlexBox>
     </FormWrapper>
   );
 };
 
-export default Login;
+export default Registration;

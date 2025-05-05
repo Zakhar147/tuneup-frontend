@@ -26,7 +26,7 @@ export const BasicInput: React.FC<TextInputProps> = ({
       className="
         appearance-none bg-transparent outline-none w-full h-[50px]
         border border-light-inputBorder dark:border-dark-inputBorder   rounded-[5px] 
-        pl-[10px] py-[8px] text-[20px] text-[#AAAAAA]
+        pl-[10px] py-[8px] text-[20px] text-light-textSecond dark:text-dark-textSecond
       "
     />
   );

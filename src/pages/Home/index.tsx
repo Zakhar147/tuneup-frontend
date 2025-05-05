@@ -43,7 +43,7 @@ const Home: React.FC = () => {
         <ActionCard
           Icon={NoteIcon}
           title="Explore Songs"
-          href="#"
+          href="/songs"
           hrefText="View songs"
         />
       </FlexBox>

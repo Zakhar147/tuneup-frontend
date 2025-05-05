@@ -1,3 +1,4 @@
+import SongList from '@pages/SongList';
 import React, { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
@@ -10,6 +11,7 @@ export const AppRoutes: React.FC = () => (
     <Route path="/" element={<Home />} />
     <Route path="/login" element={<Login />} />
     <Route path="/registration" element={<Registration />} />
+    <Route path='/songs' element={<SongList />} />
     <Route path="*" element={<Navigate to="/" replace />} />
   </Routes>
 );

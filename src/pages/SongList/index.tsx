@@ -1,5 +1,4 @@
 import { FlexBox } from '@shared/ui/FlexBox'
-import { SearchInput } from '@shared/ui/Input'
 import SongListWidget from '@widgets/SongList/ui/SongListWidget'
 import React from 'react'
 

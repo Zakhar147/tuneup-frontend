@@ -8,7 +8,6 @@ interface TextInputProps {
   name?: string;
 }
 
-//TODO: Переделать цвет текста на светлой теме
 export const BasicInput: React.FC<TextInputProps> = ({
   placeholder,
   value,

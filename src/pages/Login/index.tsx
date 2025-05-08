@@ -14,7 +14,7 @@ const Login = () => {
         align="center"
         className="gap-[15px] w-[100%]"
       >
-        <BasicInput placeholder="Username" />
+        <BasicInput placeholder="Username or Email" />
         <BasicInput type="password" placeholder="Password" />
       </FlexBox>
       <FlexBox

@@ -3,6 +3,7 @@ import React, { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import { Layout, AppRoutes } from '../Routing';
+
 import Spinner from '@shared/ui/Spinner';
 
 const AppProviders: React.FC = () => (

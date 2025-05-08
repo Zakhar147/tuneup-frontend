@@ -18,7 +18,7 @@ const SongListItemWidget: React.FC<SongListItemWidgetProps> = ({
 }) => {
   return (
     <Link to={`/songs/${index}`} className="w-full">
-      <FlexBox className="w-full max-h-[74px] py-[9px] cursor-pointer transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-neutral-800 rounded-[10px]">
+      <FlexBox className="w-full max-h-[74px] py-[9px] cursor-pointer transition-colors duration-200 hover:bg-hoverBg rounded-[10px]">
         <div className="h-full p-[25px] text-[#111111] dark:text-[#AAAAAA]">
           {index}
         </div>

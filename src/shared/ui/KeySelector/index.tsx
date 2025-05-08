@@ -30,7 +30,7 @@ const KeySelector: React.FC<KeySelectorProps> = ({ originalKey }) => {
                 setSelectedKey(key);
                 setOpen(false);
               }}
-              className="px-4 py-2 cursor-pointer hover:bg-orange-500 hover:bg-opacity-10 text-light-textMain dark:text-dark-textMain"
+              className="px-4 py-2 cursor-pointer hover:bg-hoverBg text-light-textMain dark:text-dark-textMain"
             >
               {key}
             </div>

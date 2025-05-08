@@ -32,6 +32,7 @@ export default {
       },
       colors: {
         accent: "#E95420",
+        hoverBg: "rgba(249, 115, 22, 0.1)",
         light: {
           bgColor: "#F9F6F3",
           container: "#FFFFFF",
@@ -39,7 +40,7 @@ export default {
           textSecond: "#555555",
           formBg: "#FFFFFF",
           chrodsBg: "#F5C4AE",
-          inputBorder: "#CCCCCC"
+          inputBorder: "#CCCCCC",
         },
         dark: {
           bgColor: "#0D0D0D",
@@ -48,7 +49,7 @@ export default {
           textSecond: "#AAAAAA",
           formBg: "#111111",
           chrodsBg: "#2D0202",
-          inputBorder: "#3D3D3D"
+          inputBorder: "#3D3D3D",
         }
       },
       screens: {

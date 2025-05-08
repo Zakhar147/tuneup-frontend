@@ -1,6 +1,8 @@
-import { FlexBox } from "@shared/ui/FlexBox";
-
 import SongInfo from "@widgets/SongInfo/ui/SongInfo";
+
+import { SongSwitcher } from "@features/switchSongMaterial";
+
+import { FlexBox } from "@shared/ui/FlexBox";
 
 const Song = () => {
   return (
@@ -8,7 +10,7 @@ const Song = () => {
       direction="col"
       align="center"
       justify="start"
-      className="gap-[30px] w-full min-h-screen py-[42px]"
+      className="gap-[145px] w-full min-h-screen py-[42px]"
     >
       <SongInfo
         img="https://thumbs.dreamstime.com/b/modern-simple-abstract-music-logo-concept-sound-wave-headset-vector-image-template-365703318.jpg"
@@ -17,6 +19,7 @@ const Song = () => {
         bpm={100}
         key="E"
       />
+      <SongSwitcher/>
     </FlexBox>
   );
 };

@@ -4,12 +4,14 @@ import { FlexBox } from "@shared/ui/FlexBox";
 
 import { useSongMaterialStore } from "../model/useSongMaterialStore";
 import { TabsView } from "./TabsView";
+import { TextView } from "./TextView";
 
 interface SongSwitcherProps {
   tabUrl: string;
+  chords: string
 }
 
-export const SongSwitcher: React.FC<SongSwitcherProps> = ({ tabUrl }) => {
+export const SongSwitcher: React.FC<SongSwitcherProps> = ({ tabUrl, chords }) => {
   const { view, setView } = useSongMaterialStore();
 
   return (
@@ -39,7 +41,7 @@ export const SongSwitcher: React.FC<SongSwitcherProps> = ({ tabUrl }) => {
         </button>
       </FlexBox>
       {/* Text or Tabs */}
-      {view === "text" && "chords"}
+      {view === "text" && <TextView chordSheet={chords}/>}
       {view === "tabs" && <TabsView tabUrl={tabUrl} />}
     </FlexBox>
   );

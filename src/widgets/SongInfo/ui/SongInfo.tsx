@@ -1,5 +1,4 @@
 import { FlexBox } from "@shared/ui/FlexBox";
-import KeySelector from "@shared/ui/KeySelector";
 import { Typography } from "@shared/ui/Typography";
 import React from "react";
 
@@ -8,10 +7,10 @@ interface SongInfoProps {
   title: string;
   artist: string;
   bpm: number;
-  key: string;
+  songKey: string;
 }
 
-const SongInfo: React.FC<SongInfoProps> = ({ img, title, artist, bpm }) => {
+const SongInfo: React.FC<SongInfoProps> = ({ img, title, artist, bpm, songKey }) => {
   return (
     <FlexBox justify="between" align="center" className="w-full px-[20px]">
       <FlexBox justify="start" align="center" className="w-full">
@@ -23,14 +22,15 @@ const SongInfo: React.FC<SongInfoProps> = ({ img, title, artist, bpm }) => {
           />
         </div>
         <FlexBox direction="col" align="start" justify="center" className="w-[50%] pl-[30px]">
-          <Typography className="text-[35px]" title>{title}</Typography>
-          <Typography className="text-[22px]">{artist}</Typography>
+          <Typography className="text-[30px]" title>{title}</Typography>
+          <Typography className="text-[20px]">{artist}</Typography>
         </FlexBox>
       </FlexBox>
 
-      <FlexBox className="gap-[10px]" direction="col" justify="center" align="center">
-        <Typography title>BPM: {bpm}</Typography>
-        <KeySelector originalKey="E"/>
+      <FlexBox className="min-w-[130px] gap-[10px]" direction="col" justify="center" align="start">
+        <Typography className="text-[17px]" >Original key: <span className="text-accent ">{songKey}</span></Typography>
+        <Typography className="text-[17px]" >BPM:<span className="text-accent ">{bpm}</span></Typography>
+        {/* <KeySelector originalKey="E"/> */}
       </FlexBox>
     </FlexBox>
   );

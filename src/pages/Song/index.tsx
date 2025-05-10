@@ -4,6 +4,7 @@ import { SongSwitcher } from "@features/switchSongMaterial";
 
 import { FlexBox } from "@shared/ui/FlexBox";
 import { textAndChords } from "@entities/Song/model/chordsAndText";
+import YouTubePlayer from "@widgets/YouTubePlayer";
 
 const Song = () => {
   return (
@@ -20,7 +21,8 @@ const Song = () => {
         bpm={100}
         songKey="E"
       />
-      <SongSwitcher tabUrl="/tab/tab_1.gp5" chords={textAndChords}/>
+      <SongSwitcher tabUrl="/tab/tab_1.gp5" chords={textAndChords} />
+      <YouTubePlayer url="https://www.youtube.com/watch?v=Dz38yetbT7M" />
     </FlexBox>
   );
 };

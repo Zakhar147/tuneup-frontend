@@ -7,10 +7,17 @@ export const Navbar: React.FC = () => {
   //  TODO: Сделать так чтобы navbar был fixed
 
   return (
-    <header className="w-full py-[30px] px-[60px]">
+    <header
+      className="w-full py-[30px] px-[60px] fixed top-0 left-0 z-50 backdrop-blur-md bg-transparent"
+      style={{ boxShadow: "0 2px 28px 0 rgba(0, 0, 0, 0.05)" }}
+    >
       <FlexBox justify="between" align="center">
         <Typography className="text-[32px]" as="h1">
-          <Link href={"/"} hrefText={"TuneUp"} colorClassName="text-light-textMain dark:text-dark-textMain"/>
+          <Link
+            href={"/"}
+            hrefText={"TuneUp"}
+            colorClassName="text-light-textMain dark:text-dark-textMain"
+          />
         </Typography>
         <FlexBox justify="center" className="gap-[30px]">
           {!false ? (

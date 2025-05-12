@@ -27,9 +27,9 @@ export const Typography: React.FC<TextProps> = ({
   return (
     <Tag
       className={clsx(
+        className,
         colorClassName || defaultColorClass, 
         pointer ? 'cursor-pointer' : 'cursor-default',
-        className
       )}
       id={id}
     >

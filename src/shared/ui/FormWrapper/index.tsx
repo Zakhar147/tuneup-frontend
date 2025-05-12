@@ -7,15 +7,17 @@ interface FormWrapperProps {
   title: string;
   children: ReactNode;
   titleSizeClass?: string;
+  onSubmit: React.FormEventHandler<HTMLFormElement>;
 }
 
 const FormWrapper: React.FC<FormWrapperProps> = ({
   title,
   children,
-  titleSizeClass
+  titleSizeClass,
+  onSubmit
 }) => {
   return (
-    <form method="post" className={clsx(`max-w-[400px] w-full`)}>
+    <form onSubmit={onSubmit} className={clsx(`max-w-[400px] w-full`)}>
       <FlexBox
         direction="col"
         justify="center"

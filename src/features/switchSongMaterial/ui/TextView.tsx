@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import ChordSheetJS, { Line, Song } from "chordsheetjs";
 import { FlexBox } from "@shared/ui/FlexBox";
 
+//TODO: поменять типы где any
+
 type Section = {
   title: string;
   lines: Line[];
 };
 
-const extractTitle = (line: Line): string | null => {
+const extractTitle = (line: any): string | null => {
   const text = line.items?.[0]?.lyrics;
   const match = text?.match(/\[(.+?)\]/);
   return match ? match[1] : null;
@@ -65,7 +67,7 @@ export const TextView: React.FC<TextViewProps> = ({
               <div className="flex flex-wrap gap-2 text-[17px] text-[#E95420] font-medium mb-1">
                 {line.items
                   .filter(isChordLineItem)
-                  .map((item, j) =>
+                  .map((item: any, j) =>
                     item.chords ? (
                       <span
                         key={j}
@@ -79,7 +81,7 @@ export const TextView: React.FC<TextViewProps> = ({
               <div className="text-light-textSecond dark:text-dark-textSecond text-[17px]">
                 {line.items
                   .filter(isChordLineItem)
-                  .map((item, j) =>
+                  .map((item: any, j) =>
                     item.lyrics ? (
                       <span key={j} className="inline-block">
                          {item.lyrics.replace(/ /g, '\u00A0')}

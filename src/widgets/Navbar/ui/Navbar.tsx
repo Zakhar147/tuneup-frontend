@@ -26,7 +26,10 @@ export const Navbar: React.FC = () => {
                 About
               </Typography>
               <Typography className="text-[16px] font-medium" pointer>
-                Login
+                <Link
+                  href={"/login"}
+                  hrefText={"Login"}
+                />
               </Typography>
             </>
           ) : (

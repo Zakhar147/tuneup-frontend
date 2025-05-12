@@ -37,13 +37,13 @@ const Home: React.FC = () => {
         <ActionCard
           Icon={BassGuitarIcon}
           title="Start Playing"
-          href="#"
+          href="/registration"
           hrefText="Get started"
         />
         <ActionCard
           Icon={NoteIcon}
           title="Explore Songs"
-          href="/songs"
+          href="/registration"
           hrefText="View songs"
         />
       </FlexBox>

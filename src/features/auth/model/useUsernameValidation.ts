@@ -11,7 +11,7 @@ export const useUsernameValidation = (
 ) => {
   const abortControllerRef = useRef<AbortController | null>(null);
 
-  const validateUsername = useMemo(() => debounce(500, async (username: string) => {
+  const validateUsername = useMemo(() => debounce(700, async (username: string) => {
     if (!username) return;
 
     if (abortControllerRef.current) {
@@ -21,6 +21,8 @@ export const useUsernameValidation = (
     abortControllerRef.current = new AbortController();
 
     try {
+      console.log("requesitng...")
+
       await axiosInstance.post(
         "/auth/check-username",
         { username },
@@ -31,7 +33,7 @@ export const useUsernameValidation = (
       if (!axios.isCancel(error)) {
         setError("username", {
           type: "manual",
-          message: "Username is already taken !",
+          message: "Username is already taken!",
         });
       }
     }

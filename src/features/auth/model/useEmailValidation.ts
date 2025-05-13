@@ -14,7 +14,7 @@ export const useEmailValidation = (
 ) => {
   const abortControllerRef = useRef<AbortController | null>(null);
 
-  const validateEmail = useMemo(() => debounce(500, async (email: string) => {
+  const validateEmail = useMemo(() => debounce(700, async (email: string) => {
     if (!email) return;
 
     if (abortControllerRef.current) {
@@ -24,6 +24,7 @@ export const useEmailValidation = (
     abortControllerRef.current = new AbortController();
 
     try {
+    console.log("requesitng...")
       await axiosInstance.post(
         "/auth/check-email",
         { email },
@@ -34,7 +35,7 @@ export const useEmailValidation = (
       if (!axios.isCancel(error)) {
         setError("email", {
           type: "manual",
-          message: "Email is already taken !",
+          message: "Email is already taken!",
         });
       }
     }

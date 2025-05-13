@@ -7,6 +7,7 @@ interface FormWrapperProps {
   title: string;
   children: ReactNode;
   titleSizeClass?: string;
+  className?: string;
   onSubmit: React.FormEventHandler<HTMLFormElement>;
 }
 
@@ -14,7 +15,8 @@ const FormWrapper: React.FC<FormWrapperProps> = ({
   title,
   children,
   titleSizeClass,
-  onSubmit
+  className,
+  onSubmit,
 }) => {
   return (
     <form onSubmit={onSubmit} className={clsx(`max-w-[400px] w-full`)}>
@@ -22,12 +24,13 @@ const FormWrapper: React.FC<FormWrapperProps> = ({
         direction="col"
         justify="center"
         align="center"
-        className="gap-[37px]"
+        className={className ? className : "gap-[37px]"}
       >
-        <Typography as={"h2"} title className={clsx(
-          titleSizeClass || "text-[40px]",
-          "font-bold"
-        )}>
+        <Typography
+          as={"h2"}
+          title
+          className={clsx(titleSizeClass || "text-[40px]", "font-bold")}
+        >
           {title}
         </Typography>
 

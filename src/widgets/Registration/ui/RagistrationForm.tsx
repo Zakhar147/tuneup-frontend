@@ -25,6 +25,7 @@ const RagistrationForm = () => {
   } = useForm<Inputs>();
   const { validateUsername } = useUsernameValidation(setError, clearErrors);
   const { validateEmail } = useEmailValidation(setError, clearErrors);
+  
   return (
     <FormWrapper
       onSubmit={handleSubmit(onRegistrationSubmit)}

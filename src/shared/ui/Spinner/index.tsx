@@ -1,21 +1,27 @@
 // src/shared/ui/Spinner/Spinner.tsx
-import React from 'react';
-import { BeatLoader } from 'react-spinners';
+import React from "react";
+import { BeatLoader } from "react-spinners";
 
 interface SpinnerProps {
   loading?: boolean;
   size?: number;
   colorClass?: string;
+  className?: string;
 }
 
-const   Spinner: React.FC<SpinnerProps> = ({
+const Spinner: React.FC<SpinnerProps> = ({
   loading = true,
   size = 15,
-  colorClass = "bg-light-bgColor dark:bg-dark-bgColor"
+  colorClass = "bg-light-bgColor dark:bg-dark-bgColor",
+  className,
 }) => (
   <div
     className={`
-      fixed inset-0
+      ${
+        className
+          ? className
+          : `fixed inset-0`
+      }
       flex items-center justify-center
       z-9999
       ${colorClass}

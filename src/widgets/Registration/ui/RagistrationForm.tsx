@@ -1,4 +1,9 @@
-import { Inputs, onRegistrationSubmit } from "@features/auth";
+import {
+  Inputs,
+  onRegistrationSubmit,
+  useEmailValidation,
+  useUsernameValidation,
+} from "@features/auth";
 
 import { useForm } from "react-hook-form";
 
@@ -15,16 +20,14 @@ const RagistrationForm = () => {
     handleSubmit,
     watch,
     setError,
+    clearErrors,
     formState: { errors },
   } = useForm<Inputs>();
-
-  const onSubmit = (data: Inputs) => {
-    onRegistrationSubmit(data, setError);
-  };
-
+  const { validateUsername } = useUsernameValidation(setError, clearErrors);
+  const { validateEmail } = useEmailValidation(setError, clearErrors);
   return (
     <FormWrapper
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onRegistrationSubmit)}
       title="Create an Account"
     >
       <FlexBox
@@ -36,7 +39,10 @@ const RagistrationForm = () => {
         <div className="w-full">
           <BasicInput
             placeholder="Username"
-            {...register("username", { required: "Username is required" })}
+            {...register("username", {
+              required: "Username is required",
+              onChange: (e) => validateUsername(e.target.value),
+            })}
           />
           <Typography
             className="text-[14px] w-full pl-[2px] pt-[5px]"
@@ -49,7 +55,10 @@ const RagistrationForm = () => {
           <BasicInput
             type="email"
             placeholder="Email"
-            {...register("email", { required: "Email is required" })}
+            {...register("email", {
+              required: "Email is required",
+              onChange: (e) => validateEmail(e.target.value),
+            })}
           />
           <Typography
             className="text-[14px] w-full pl-[2px] pt-[5px]"

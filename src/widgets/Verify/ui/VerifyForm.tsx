@@ -1,13 +1,14 @@
 import { ResendCode } from "@features/resentVerification";
+import { useValidateVerificationCode } from "@features/validateVerificationCode";
+import { Inputs } from "@features/validateVerificationCode";
 
 import { useForm } from "react-hook-form";
 
-import { SubmitButton } from "@shared/ui/Button";
 import { FlexBox } from "@shared/ui/FlexBox";
 import FormWrapper from "@shared/ui/FormWrapper";
 import { BasicInput } from "@shared/ui/Input";
 import { Typography } from "@shared/ui/Typography";
-import { Inputs } from "../types/inputs";
+import Spinner from "@shared/ui/Spinner";
 
 const VerifyForm: React.FC<{
   verifyEmail: string;
@@ -19,30 +20,54 @@ const VerifyForm: React.FC<{
     clearErrors,
     formState: { errors },
   } = useForm<Inputs>();
+  const { validateCode, loading } = useValidateVerificationCode(
+    setError,
+    clearErrors
+  );
 
   return (
     <FormWrapper
-      onSubmit={handleSubmit(() => {
-        console.log("hello");
-      })}
+      onSubmit={handleSubmit((e) => console.log(e.verifyCode))}
       title="Verification"
       className="gap-[15px]"
     >
       <Typography
-        colorClassName="text-light-[#000000]"
-        className="p-[15px] text-[19px] rounded-[10px] bg-green-100 text-center"
+        className="
+          p-[15px] text-[19px] rounded-[10px] text-center
+          bg-emerald-100 text-emerald-900
+          dark:bg-emerald-900 dark:text-emerald-200
+        "
       >
         We've sent a verification code to your email - {verifyEmail}
       </Typography>
-
       <div className="w-full">
-        <BasicInput
-          type="number"
-          placeholder="Enter verification code"
-          {...register("verifyCode", {
-            required: "Please enter the code!",
-          })}
-        />
+        {loading ? (
+          <FlexBox justify="center" className="w-full h-full ">
+            <Spinner className="w-[30px] h-[30px]" />
+          </FlexBox>
+        ) : (
+          <BasicInput
+            type="number"
+            maxLen={8}
+            placeholder="Enter verification code"
+            {...register("verifyCode", {
+              required: "Please enter the code!",
+              onChange: (e) => {
+                const value = e.target.value;
+                if (value.length === 8) {
+                  clearErrors("verifyCode");
+                  console.log("value BASICINPUT", value);
+                  validateCode(value, verifyEmail);
+                } else {
+                  setError("verifyCode", {
+                    type: "manual",
+                    message: "Code must be 8 digits long!",
+                  });
+                }
+              },
+            })}
+          />
+        )}
         <Typography
           className="text-[16px] w-full pl-[2px] pt-[5px]"
           colorClassName="text-red-500 "
@@ -56,7 +81,6 @@ const VerifyForm: React.FC<{
         align="center"
         className="gap-[5px] w-full"
       >
-        <SubmitButton text="Submit" />
         <ResendCode email={verifyEmail} />
       </FlexBox>
     </FormWrapper>

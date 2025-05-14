@@ -1,6 +1,7 @@
 import { Typography } from "@shared/ui/Typography";
 
 import { useResendCode } from "../model/useResendCode";
+import Spinner from "@shared/ui/Spinner";
 
 export const ResendCode: React.FC<{ email: string }> = ({ email }) => {
   console.log(email)
@@ -9,9 +10,16 @@ export const ResendCode: React.FC<{ email: string }> = ({ email }) => {
   return (
     <div className="flex flex-col items-center gap-[8px] w-full pl-[2px]">
       {!canResend ? (
-        <Typography className="text-[18px] text-light-textSecond dark:text-dark-textSecond w-full text-left">
-          You can resend in {cooldown}s
-        </Typography>
+        loading ? (
+          <div className="w-full h-full pl-[16px]">
+            <Spinner className="w-[30px] h-[30px]" />
+          </div>
+        ) : (
+          <Typography className="text-[18px] text-light-textSecond dark:text-dark-textSecond w-full text-left">
+            You can resend verification code in {cooldown}s
+          </Typography>
+        )
+
       ) : (
         <button
           onClick={resendCode}

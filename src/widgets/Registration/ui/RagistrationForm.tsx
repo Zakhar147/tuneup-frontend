@@ -46,7 +46,7 @@ const RagistrationForm = () => {
             })}
           />
           <Typography
-            className="text-[14px] w-full pl-[2px] pt-[5px]"
+            className="text-[16px] w-full pl-[2px] pt-[5px]"
             colorClassName="text-red-500 "
           >
             {errors.username?.message || ""}
@@ -62,7 +62,7 @@ const RagistrationForm = () => {
             })}
           />
           <Typography
-            className="text-[14px] w-full pl-[2px] pt-[5px]"
+            className="text-[16px] w-full pl-[2px] pt-[5px]"
             colorClassName="text-red-500"
           >
             {errors.email?.message || ""}
@@ -75,7 +75,7 @@ const RagistrationForm = () => {
             {...register("password", { required: "Password is required" })}
           />
           <Typography
-            className="text-[14px] w-full pl-[2px] pt-[5px]"
+            className="text-[16px] w-full pl-[2px] pt-[5px]"
             colorClassName="text-red-500"
           >
             {errors.password?.message || ""}
@@ -92,7 +92,7 @@ const RagistrationForm = () => {
             })}
           />
           <Typography
-            className="text-[14px] w-full pl-[2px] pt-[5px]"
+            className="text-[16px] w-full pl-[2px] pt-[5px]"
             colorClassName="text-red-500"
           >
             {errors.confirmPassword?.message || ""}

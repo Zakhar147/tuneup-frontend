@@ -3,10 +3,11 @@ import React from "react";
 interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
   type?: React.HTMLInputTypeAttribute;
+  maxLen?: number;
 }
 
 export const BasicInput = React.forwardRef<HTMLInputElement, TextInputProps>(
-  ({ placeholder, type = "text", ...rest }, ref) => {
+  ({ placeholder, type = "text", maxLen, ...rest }, ref) => {
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (type == "number") {
         const allowedKeys = [
@@ -29,8 +30,9 @@ export const BasicInput = React.forwardRef<HTMLInputElement, TextInputProps>(
         {...rest}
         ref={ref}
         placeholder={placeholder}
-        type={type}
+        type={maxLen ? "text" : type}
         onKeyDown={handleKeyDown}
+        maxLength={maxLen}
         className="
           appearance-none bg-transparent outline-none w-full h-[50px]
           border border-light-inputBorder dark:border-dark-inputBorder rounded-[5px] 

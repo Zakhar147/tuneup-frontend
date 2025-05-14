@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { axiosInstance } from "@shared/api/axiosInstance";
 
 export const useResendCode = (email: string) => {
-  const [cooldown, setCooldown] = useState(3);
+  const [cooldown, setCooldown] = useState(60);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {

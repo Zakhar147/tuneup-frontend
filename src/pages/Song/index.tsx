@@ -21,8 +21,13 @@ const Song = () => {
         bpm={100}
         songKey="E"
       />
-      <SongSwitcher tabUrl="/tab/tab_1.gp5" chords={textAndChords} />
-      <YouTubePlayer url="https://www.youtube.com/watch?v=Dz38yetbT7M" />
+      <SongSwitcher 
+        tabUrl="/tab/tab_1.gp5" 
+        chords={textAndChords} 
+      />
+      <YouTubePlayer 
+        url="https://www.youtube.com/watch?v=Dz38yetbT7M"
+       />
     </FlexBox>
   );
 };

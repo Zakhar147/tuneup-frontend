@@ -1,40 +1,47 @@
-import { SubmitButton } from "@shared/ui/Button";
+import { useRegistrationStore } from "@features/registrationSubmit/model/store";
 import { FlexBox } from "@shared/ui/FlexBox";
-import FormWrapper from "@shared/ui/FormWrapper";
-import { BasicInput } from "@shared/ui/Input";
-import { Link } from "@shared/ui/Link";
-import { Typography } from "@shared/ui/Typography";
 
-const Registration = () => {
-  return (
-    <FormWrapper title="Create an Account">
-      <FlexBox
-        direction="col"
-        justify="center"
-        align="center"
-        className="gap-[15px] w-[100%]"
-      >
-        <BasicInput placeholder="Username" />
-        <BasicInput type="email" placeholder="Email" />
-        <BasicInput type="password" placeholder="Password" />
-        <BasicInput type="password" placeholder="Confirm password" />
+import Spinner from "@shared/ui/Spinner";
+import { lazy } from "react";
+
+const RegistrationForm = lazy(() =>
+  import("@widgets/Registration").then((mod) => ({
+    default: mod.RagistrationForm,
+  }))
+);
+
+const VerifyForm = lazy(() =>
+  import("@widgets/Verify").then((mod) => ({
+    default: mod.VerifyForm,
+  }))
+);
+
+const SuccesMessage = lazy(() =>
+  import("@widgets/SuccessMessage").then((mod) => ({
+    default: mod.SuccesMessage,
+  }))
+);
+
+const RegistrationPage = () => {
+  const { step, loading, verifyEmail } = useRegistrationStore();
+
+  if (loading)
+    return (
+      <FlexBox justify="center" align="center">
+        <Spinner className="w-full" />
       </FlexBox>
-      <FlexBox
-        direction="col"
-        justify="center"
-        align="center"
-        className="w-[100%]  gap-[10px]"
-      >
-        <SubmitButton text="Sign up" />
-        <FlexBox justify="center" align="center" className="gap-[10px]">
-          <Typography colorClassName="text-[#555555]" className="text-[20px]">
-            Already have an account ?
-          </Typography>
-          <Link href="/login" hrefText="Sign in" colorClassName="text-accent"  className="font-medium"/>
-        </FlexBox>
-      </FlexBox>
-    </FormWrapper>
-  );
+    );
+
+  switch (step) {
+    case "register":
+      return <RegistrationForm />;
+    case "verify":
+      return <VerifyForm verifyEmail={verifyEmail} />;
+    case "success":
+      return <SuccesMessage />;
+    default:
+      return null;
+  }
 };
 
-export default Registration;
+export default RegistrationPage;

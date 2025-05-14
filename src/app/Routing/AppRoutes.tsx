@@ -10,10 +10,11 @@ const Song = lazy(() => import('@pages/Song'))
 export const AppRoutes: React.FC = () => (
   <Routes>
     <Route path="/" element={<Home />} />
-    <Route path="/login" element={<Login />} />
     <Route path="/registration" element={<Registration />} />
+    <Route path="/login" element={<Login />} />
     <Route path='/songs' element={<SongList />} />
     <Route path="/songs/:id" element={<Song />} />
+    
     <Route path="*" element={<Navigate to="/" replace />} />
   </Routes>
 );

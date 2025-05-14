@@ -3,7 +3,7 @@ import { UseFormSetError, UseFormClearErrors } from "react-hook-form";
 import { debounce } from "throttle-debounce";
 import axios from "axios";
 
-import { useRegistrationStore } from "@features/auth";
+import { useRegistrationStore } from "@features/registrationSubmit";
 
 import { axiosInstance } from "@shared/api/axiosInstance";
 

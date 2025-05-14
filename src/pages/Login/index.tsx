@@ -7,7 +7,7 @@ import { Typography } from "@shared/ui/Typography";
 
 const Login = () => {
   return (
-    <FormWrapper titleSizeClass = "text-[36px]"title="Log in to your Account">
+    <FormWrapper titleSizeClass = "text-[36px]"title="Login to your Account">
       <FlexBox
         direction="col"
         justify="center"
@@ -23,7 +23,7 @@ const Login = () => {
         align="center"
         className="w-[100%]  gap-[10px]"
       >
-        <SubmitButton text="Sign up" />
+        <SubmitButton text="Sign in" />
         <FlexBox justify="center" align="center" className="gap-[10px]">
           <Typography colorClassName="text-[#555555]" className="text-[20px]">
             Don't have an account?

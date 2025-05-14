@@ -1,9 +1,6 @@
-import {
-  Inputs,
-  onRegistrationSubmit,
-  useEmailValidation,
-  useUsernameValidation,
-} from "@features/auth";
+import { Inputs, onRegistrationSubmit } from "@features/registrationSubmit";
+import { useEmailValidation } from "@features/validateEmail";
+import { useUsernameValidation } from "@features/validateUsername";
 
 import { useForm } from "react-hook-form";
 
@@ -23,9 +20,16 @@ const RagistrationForm = () => {
     clearErrors,
     formState: { errors },
   } = useForm<Inputs>();
-  const { validateUsername } = useUsernameValidation(setError, clearErrors);
-  const { validateEmail } = useEmailValidation(setError, clearErrors);
-  
+  const { validateUsername, isValidating: isUsernameValidating } =
+    useUsernameValidation(setError, clearErrors);
+  const { validateEmail, isValidating: isEmailValidating } = useEmailValidation(
+    setError,
+    clearErrors
+  );
+
+  const isSubmitDisabled =
+    Object.keys(errors).length > 0 || isUsernameValidating || isEmailValidating;
+
   return (
     <FormWrapper
       onSubmit={handleSubmit(onRegistrationSubmit)}
@@ -105,7 +109,7 @@ const RagistrationForm = () => {
         align="center"
         className="w-[100%]  gap-[10px]"
       >
-        <SubmitButton text="Sign up" />
+        <SubmitButton text="Sign up" disabled={isSubmitDisabled} />
         <FlexBox justify="center" align="center" className="gap-[10px]">
           <Typography colorClassName="text-[#555555]" className="text-[20px]">
             Already have an account ?

@@ -4,7 +4,7 @@ import { ActionCard } from "@widgets/ActionCard/ui/ActionCard";
 
 import { BassGuitarIcon } from "@shared/assets/Components/BassGuitarIcon";
 import { NoteIcon } from "@shared/assets/Components/NoteIcon";
-import { CreateAccountButton } from "@shared/ui/Button";
+import { Button } from "@shared/ui/Button";
 import { FlexBox } from "@shared/ui/FlexBox";
 import { Typography } from "@shared/ui/Typography";
 import { BenefitList } from "@shared/ui/Benefits";
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
           TuneUp helps you learn to play bass with tabs and chords for all your
           favorite songs.
         </Typography>
-        <CreateAccountButton />
+        <Button text="Create Account" link="/registration"/>
       </FlexBox>
 
       <FlexBox direction="col" className="max-w-[600px] mx-auto gap-[70px]">

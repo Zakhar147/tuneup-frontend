@@ -1,4 +1,4 @@
-import { useRegistrationStore } from "@features/auth/model/store";
+import { useRegistrationStore } from "@features/registrationSubmit/model/store";
 import { FlexBox } from "@shared/ui/FlexBox";
 
 import Spinner from "@shared/ui/Spinner";
@@ -16,10 +16,14 @@ const VerifyForm = lazy(() =>
   }))
 );
 
+const SuccesMessage = lazy(() =>
+  import("@widgets/SuccessMessage").then((mod) => ({
+    default: mod.SuccesMessage,
+  }))
+);
+
 const RegistrationPage = () => {
   const { step, loading, verifyEmail } = useRegistrationStore();
-
-  // return <VerifyForm verifyEmail={verifyEmail ?  verifyEmail : "zaharkhach2004@gmail.com"} /> 
 
   if (loading)
     return (
@@ -34,7 +38,7 @@ const RegistrationPage = () => {
     case "verify":
       return <VerifyForm verifyEmail={verifyEmail} />;
     case "success":
-      return "<SuccessMessage />";
+      return <SuccesMessage />;
     default:
       return null;
   }

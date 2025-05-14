@@ -1,43 +1,48 @@
 import { useRef, useMemo, useState } from "react";
+
+import axios from "axios";
 import { UseFormSetError, UseFormClearErrors } from "react-hook-form";
 import { debounce } from "throttle-debounce";
-import axios from "axios";
-import { axiosInstance } from "@shared/api/axiosInstance";
-import { Inputs } from "../types/inputs";
 
-export const useUsernameValidation = (
+import { axiosInstance } from "@shared/api/axiosInstance";
+
+import { Inputs } from "@features/registrationSubmit";
+
+export const useEmailValidation = (
   setError: UseFormSetError<Inputs>,
   clearErrors: UseFormClearErrors<Inputs>
 ) => {
+  const [isValidating, setValidating] = useState<boolean>(false);
   const abortControllerRef = useRef<AbortController | null>(null);
 
-  const validateUsername = useMemo(() => debounce(700, async (username: string) => {
-    if (!username) return;
+  const validateEmail = useMemo(() => debounce(700, async (email: string) => {
+    if (!email) return;
 
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
     }
 
+    setValidating(true);
     abortControllerRef.current = new AbortController();
 
     try {
-      console.log("requesitng...")
-
       await axiosInstance.post(
-        "/auth/check-username",
-        { username },
+        "/auth/check-email",
+        { email },
         { signal: abortControllerRef.current.signal }
       );
-      clearErrors("username");
+      clearErrors("email");
     } catch (error: any) {
       if (!axios.isCancel(error)) {
-        setError("username", {
+        setError("email", {
           type: "manual",
-          message: "Username is already taken!",
+          message: "Email is already taken!",
         });
       }
+    } finally {
+      setValidating(false);
     }
   }), []);
 
-  return { validateUsername };
+  return { validateEmail, isValidating };
 };

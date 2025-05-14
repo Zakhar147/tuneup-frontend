@@ -1,2 +1,2 @@
-export {CreateAccBtn as CreateAccountButton} from './ui/CreateAccBtn';
+export {Button } from './ui/CreateAccBtn';
 export {SubmitButton} from './ui/SubmitButton';

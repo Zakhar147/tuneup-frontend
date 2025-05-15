@@ -10,12 +10,9 @@ import { Button } from "@shared/ui/Button";
 import { FlexBox } from "@shared/ui/FlexBox";
 import { Typography } from "@shared/ui/Typography";
 import { BenefitList } from "@shared/ui/Benefits";
-import { useLogout } from "@features/logout";
 
 const Home: React.FC = () => {
   const auth = useAuthStore((state) => state.auth);
-    const { onLogout } = useLogout();
-  
 
   return (
     <FlexBox
@@ -40,11 +37,7 @@ const Home: React.FC = () => {
           TuneUp helps you learn to play bass with tabs and chords for all your
           favorite songs.
         </Typography>
-        {auth ? (
-          <Button onClick={onLogout} text="Logout" />
-        ) : (
-          <Button text="Create Account" link="/registration" />
-        )}
+        {auth ? null : <Button text="Create Account" link="/registration" />}
       </FlexBox>
 
       <FlexBox direction="col" className="max-w-[600px] mx-auto gap-[70px]">

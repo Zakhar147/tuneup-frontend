@@ -5,7 +5,7 @@ import axios from "axios";
 
 import { useRegistrationStore } from "@features/registrationSubmit";
 
-import { axiosInstance } from "@shared/api/axiosInstance";
+import {api} from "@shared/api";
 
 import { Inputs } from "../types/inputs";
 
@@ -31,7 +31,7 @@ export const useValidateVerificationCode = (
 
         setLoading(true);
         try {
-            const response = await axiosInstance.post(
+            const response = await api.post(
                 "/auth/registration/verify",
                 { email, verificationCode },
                 { signal: abortControllerRef.current.signal });

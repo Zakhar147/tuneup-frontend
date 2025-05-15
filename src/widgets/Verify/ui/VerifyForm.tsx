@@ -1,4 +1,4 @@
-import { ResendCode } from "@features/resentVerification";
+import { ResendCode } from "@features/resentVerificationCode";
 import { useValidateVerificationCode } from "@features/validateVerificationCode";
 import { Inputs } from "@features/validateVerificationCode";
 
@@ -13,6 +13,7 @@ import Spinner from "@shared/ui/Spinner";
 const VerifyForm: React.FC<{
   verifyEmail: string;
 }> = ({ verifyEmail }) => {
+
   const {
     register,
     handleSubmit,
@@ -20,6 +21,7 @@ const VerifyForm: React.FC<{
     clearErrors,
     formState: { errors },
   } = useForm<Inputs>();
+  
   const { validateCode, loading } = useValidateVerificationCode(
     setError,
     clearErrors

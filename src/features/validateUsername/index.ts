@@ -1,1 +1,1 @@
-export { useUsernameValidation } from "./model/useUsernameValidation"
+export { useCheckUsernameAvailable } from "./model/useCheckUsernameAvailable"

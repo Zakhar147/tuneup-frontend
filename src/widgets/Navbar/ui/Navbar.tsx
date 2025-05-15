@@ -1,10 +1,14 @@
+import { useAuthStore } from "@entities/User";
+import { useLogout } from "@features/logout";
+
 import { ThemeToggler } from "@shared/ui/Theme";
 import { FlexBox } from "@shared/ui/FlexBox";
 import { Typography } from "@shared/ui/Typography";
 import { Link } from "@shared/ui/Link";
 
 export const Navbar: React.FC = () => {
-  //  TODO: Сделать так чтобы navbar был fixed
+  const { auth } = useAuthStore();
+  const { onLogout } = useLogout();
 
   return (
     <header
@@ -20,16 +24,13 @@ export const Navbar: React.FC = () => {
           />
         </Typography>
         <FlexBox justify="center" className="gap-[30px]">
-          {!false ? (
+          {!auth ? (
             <>
               <Typography className="text-[16px] font-medium" pointer>
                 About
               </Typography>
               <Typography className="text-[16px] font-medium" pointer>
-                <Link
-                  href={"/login"}
-                  hrefText={"Login"}
-                />
+                <Link href={"/login"} hrefText={"Login"} />
               </Typography>
             </>
           ) : (
@@ -37,15 +38,19 @@ export const Navbar: React.FC = () => {
               <Typography className="text-[16px] font-medium" pointer>
                 Songs
               </Typography>
-              <Typography className="text-[16px] font-medium" pointer>
-                Artists
-              </Typography>
-              <Typography className="text-[16px] font-medium" pointer>
-                Albums
-              </Typography>
+
               <Typography className="text-[16px] font-medium" pointer>
                 Add song
               </Typography>
+
+              <div onClick={onLogout}>
+                <Typography
+                  className="text-[16px] font-medium text-red-500 cursor-pointer"
+                  pointer
+                >
+                  Logout
+                </Typography>
+              </div>
             </>
           )}
 

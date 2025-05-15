@@ -1,4 +1,4 @@
-import { axiosInstance } from '@shared/api/axiosInstance';
+import {api} from '@shared/api';
 
 import { Inputs } from '../types/inputs';
 
@@ -11,7 +11,7 @@ export const onRegistrationSubmit = async (data: Inputs) => {
 
   setLoading(true);
   try {
-    await axiosInstance.post("/auth/registration", {
+    await api.post("/auth/registration", {
       username: data.username,
       email: data.email,
       password: data.password

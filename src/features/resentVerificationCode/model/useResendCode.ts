@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { axiosInstance } from "@shared/api/axiosInstance";
+
+import {api} from "@shared/api";
 
 export const useResendCode = (email: string) => {
   const [cooldown, setCooldown] = useState(60);
@@ -15,7 +16,7 @@ export const useResendCode = (email: string) => {
     console.log("resendCode called", email);
     setLoading(true);
     try {
-      const response = await axiosInstance.post("auth/registration/resendCode", {
+      const response = await api.post("auth/registration/resendCode", {
         email,
       });
 

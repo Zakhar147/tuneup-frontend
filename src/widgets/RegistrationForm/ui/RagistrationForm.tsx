@@ -1,6 +1,6 @@
 import { Inputs, onRegistrationSubmit } from "@features/registrationSubmit";
-import { useEmailValidation } from "@features/validateEmail";
-import { useUsernameValidation } from "@features/validateUsername";
+import { useCheckEmailAvailable } from "@features/validateEmail";
+import { useCheckUsernameAvailable } from "@features/validateUsername";
 
 import { useForm } from "react-hook-form";
 
@@ -12,6 +12,7 @@ import { Typography } from "@shared/ui/Typography";
 import { Link } from "@shared/ui/Link";
 
 const RagistrationForm = () => {
+
   const {
     register,
     handleSubmit,
@@ -20,12 +21,12 @@ const RagistrationForm = () => {
     clearErrors,
     formState: { errors },
   } = useForm<Inputs>();
+  
   const { validateUsername, isValidating: isUsernameValidating } =
-    useUsernameValidation(setError, clearErrors);
-  const { validateEmail, isValidating: isEmailValidating } = useEmailValidation(
-    setError,
-    clearErrors
-  );
+    useCheckUsernameAvailable(setError, clearErrors);
+
+  const { validateEmail, isValidating: isEmailValidating } =
+    useCheckEmailAvailable(setError, clearErrors);
 
   const isSubmitDisabled =
     Object.keys(errors).length > 0 || isUsernameValidating || isEmailValidating;

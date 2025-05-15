@@ -3,19 +3,19 @@ import { UseFormSetError, UseFormClearErrors } from "react-hook-form";
 import { debounce } from "throttle-debounce";
 import axios from "axios";
 
-import { axiosInstance } from "@shared/api/axiosInstance";
+import {api} from "@shared/api";
 
-import { Inputs } from "@features/registrationSubmit";
+import { Inputs } from "@features/loginSubmit";
 
-export const useUsernameValidation = (
+export const useLoginExistenceValidation = (
   setError: UseFormSetError<Inputs>,
   clearErrors: UseFormClearErrors<Inputs>
 ) => {
   const [isValidating, setValidating] = useState<boolean>(false);
   const abortControllerRef = useRef<AbortController | null>(null);
 
-  const validateUsername = useMemo(() => debounce(700, async (username: string) => {
-    if (!username) return;
+  const validateLogin = useMemo(() => debounce(700, async (login: string) => {
+    if (!login) return;
 
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
@@ -27,17 +27,18 @@ export const useUsernameValidation = (
     try {
       console.log("requesitng...")
 
-      await axiosInstance.post(
-        "/auth/check-username",
-        { username },
+      await api.post(
+        "/auth/check-login",
+        { login },
         { signal: abortControllerRef.current.signal }
       );
-      clearErrors("username");
+      clearErrors("login");
     } catch (error: any) {
       if (!axios.isCancel(error)) {
-        setError("username", {
+        const message = error.response?.data?.message || "Invalid login";
+        setError("login", {
           type: "manual",
-          message: "Username is already taken!",
+          message: message,
         });
       }
     } finally {
@@ -45,5 +46,5 @@ export const useUsernameValidation = (
     }
   }), []);
 
-  return { validateUsername, isValidating };
+  return { validateLogin, isValidating };
 };

@@ -1,1 +1,1 @@
-export {useEmailValidation} from "./model/useEmailValidation";
+export {useCheckEmailAvailable } from "./model/useCheckEmailAvailable";

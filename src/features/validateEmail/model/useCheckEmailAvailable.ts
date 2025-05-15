@@ -4,11 +4,11 @@ import axios from "axios";
 import { UseFormSetError, UseFormClearErrors } from "react-hook-form";
 import { debounce } from "throttle-debounce";
 
-import { axiosInstance } from "@shared/api/axiosInstance";
+import { api } from "@shared/api";
 
 import { Inputs } from "@features/registrationSubmit";
 
-export const useEmailValidation = (
+export const useCheckEmailAvailable = (
   setError: UseFormSetError<Inputs>,
   clearErrors: UseFormClearErrors<Inputs>
 ) => {
@@ -26,7 +26,7 @@ export const useEmailValidation = (
     abortControllerRef.current = new AbortController();
 
     try {
-      await axiosInstance.post(
+      await api.post(
         "/auth/check-email",
         { email },
         { signal: abortControllerRef.current.signal }

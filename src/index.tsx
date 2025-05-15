@@ -6,8 +6,4 @@ import { App } from "./app";
 
 //TODO: Создать роутинг и компонент Layout
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-);
+createRoot(document.getElementById("root")!).render(<App />);

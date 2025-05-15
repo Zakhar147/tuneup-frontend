@@ -5,7 +5,7 @@ import Spinner from "@shared/ui/Spinner";
 import { lazy } from "react";
 
 const RegistrationForm = lazy(() =>
-  import("@widgets/Registration").then((mod) => ({
+  import("@widgets/RegistrationForm").then((mod) => ({
     default: mod.RagistrationForm,
   }))
 );

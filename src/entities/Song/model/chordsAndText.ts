@@ -1,19 +1,3 @@
 export const textAndChords = `
-[Verse 1]
-Am     C/G        F          C
-Let it be, let it be, let it be, let it be
-C      G          F  C/E Dm C
-Whisper words of wisdom, let it be
-
-[Chorus]
-Am     C/G        F          C
-Let it be, let it be, let it be, let it be
-C      G          F  C/E Dm C
-Whisper words of wisdom, let it be
-
-[Verse 2]
-Am     C/G        F          C
-Let it be, let it be, let it be, let it be
-C      G          F  C/E Dm C
-Whisper words of wisdom, let it be
+"[Intro]\nC     G       Am      F\nПочинається шалений біт\n\n[Verse]\nAm     G          F          C\nЯ прийшов на репетицію з лопато́й\nF       G           C\nА тепер я в шоубізнесі\n\n[Chorus]\nAm     C/G        F          C\nПросто бий в бочку — і все буде добре!"
 `.trim();

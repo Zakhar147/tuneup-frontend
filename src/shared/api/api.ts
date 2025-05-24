@@ -12,11 +12,13 @@ export const api = axios.create({
 
 api.interceptors.request.use((config) => {
   const token = useAuthStore.getState().accessToken;
+  console.log('TOKEN: ', token)
   if (token && config.headers) {
     config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
 });
+
 export const apiWithCookies = axios.create({
   baseURL: API_URL,
   headers: {

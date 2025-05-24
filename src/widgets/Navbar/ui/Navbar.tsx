@@ -45,7 +45,7 @@ export const Navbar: React.FC = () => {
 
               <div onClick={onLogout}>
                 <Typography
-                  className="text-[16px] font-medium text-red-500 cursor-pointer"
+                  className="text-[16px] font-medium text-red-600 dark:text-red-500 cursor-pointer"
                   pointer
                 >
                   Logout

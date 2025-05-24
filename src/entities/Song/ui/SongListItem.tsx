@@ -10,7 +10,7 @@ interface SongListItemWidgetProps {
   artist: string;
 }
 
-const SongListItemWidget: React.FC<SongListItemWidgetProps> = ({
+export const SongListItemWidget: React.FC<SongListItemWidgetProps> = ({
   index,
   img,
   title,
@@ -49,5 +49,3 @@ const SongListItemWidget: React.FC<SongListItemWidgetProps> = ({
     </Link>
   );
 };
-
-export default SongListItemWidget;

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useAuthStore } from "@entities/User";
 import { Inputs } from "../types/inputs";
-import { api, apiWithCookies } from "@shared/api";
+import {apiWithCookies } from "@shared/api";
 import axios from "axios";
 
 export const useLoginSubmit = (
